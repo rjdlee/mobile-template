@@ -1,0 +1,210 @@
+<!DOCTYPE XHTML Basic 1.1>
+<html>
+	<head>
+		<title>Mobile Site</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8" http-equiv="Content-Type" content="text/html encoding=utf-8"/>
+		<link href="css/main.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div id='content'>
+
+			<header>
+
+				<nav id='nav_menu'>
+					<ul>
+						<li class='nav_button'><a>Home</a></li>
+						<li class='nav_button'><a>About</a></li>
+						<li class='nav_button'><a>Contact</a></li>
+					</ul>
+				</nav>
+
+				<nav id='main_nav'>
+
+					<a id="navBack" class="icon-home"></a>
+					<a id="navHome" class="icon-menu"></a>
+
+				</nav>
+
+			</header>
+			
+			<div id='content_body'>
+
+				<div id="jsHome" class="slide" data-state=''>
+					<span class='slide_content'>
+						<div class='hero-'>
+							<h1>Mobile 2.</h1>
+						</div>
+					
+						<div class='slide_text'>
+
+							<p>In July, I deleted Facebook. Hard-deleted. I deleted Instagram shortly thereafter. I’m done with my Kindle. I’m donating my iPad 3 to charity. I have a desktop anchored to my desk at work. I leave my personal MacBook Pro at home.</p>
+
+							<p>In August, I went to France for 2.5 weeks of holiday where I spent the duration of my time there entirely without a personal, portable communication device. Over the course of that 17-day period, I read seven books.</p>
+
+							<p>Seven books.</p>
+
+							<p>Every morning, I would wake up early, leave the house with my book in hand, and hit the beach. I would return home each day having completed half a book. I would eat dinner, check email/Twitter/Tumblr, then picking up my book where I left off, continued to read until I fell asleep. I was finishing a book every 2-3 days. I’d brought five books with me and was “forced” to buy two additional books while I was there to continue to fuel my newly-rediscovered unquenchable thirst for literature.</p>
+
+							<p>I’d managed, in that brief time, to eliminate the twitch. The twitch is the act of reaching into your pocket every few minutes to check the Internet. It’s synonymous to the act of flipping through hundreds of cable channels despite the fact that there is absolutely nothing to watch and you KNOW there’s nothing to watch, but you do it because it’s there; because, well, what the fuck else am I going to do with my remaining idle time on Earth?</p>
+
+							<p>The twitch began for some 1.4 million people in 2007 with the introduction of the first iPhone. It allowed permanent, persistent access to all the world’s information and entertainment on a beautiful-looking touchscreen device which fit in the palm of the hand. By the end of the 2010 fiscal year, 73.5 million of these twitch devices had been sold by Apple. In the first quarter of 2013 alone, nearly 50 million Apple twitches were sold. Couple this with apps and iPads and the billion-plus activations of Android twitch devices, well that’s a lot of twitching.</p>
+
+							<p>I returned home on September 1 and within a few days the twitch was back. It was made worse by Apple’s announcement of the Apple iPhone 5s and 5c and the endless stream of Apple news in my Twitter feed. I was trying to decide if I would upgrade from my now ancient iPhone 4 to the 5s. The decision was a tough one as I still hadn’t seen a huge reason to switch. I’d gone back and forth and then the decision-making process just kind of faded as I became distracted by work, Obama, Syria, a wedding I was in, and the rest of the life that just kept getting in the way.</p>
+
+							<p>Yesterday, I was walking home from lunch when I decided to pop into the Rogers store in Yaletown, Vancouver. The two friendly guys asked if they could help me. As if some supernatural entity was possessing my body, I responded that I was in the market for a flip phone, a “not-smart” phone, a dumb phone.</p>
+
+							<p>They were stunned. Hell, I was stunned.</p>
+
+							<p>This collective shock further fuelled my desire for a dumb phone:</p>
+
+							<p>“Yeah, I want a flip phone. I have an iPhone 4 and I want a flip phone.”</p>
+
+							<p>Then I climbed up on my soapbox:</p>
+
+							<p>“I’m tired of reaching for my phone every few minutes. I’m tired of seeing everybody else staring into their phones all the time. I’m tired of talking to friends and seeing all of us simultaneously reach for our phones as if telepathy dictated that we all needed some mental break from having to deal with each other because it’s so fucking stressful or tiring or something.”</p>
+
+							<p>They shook their heads in a way which implied they understood me but really they just pitied me.</p>
+
+							<p>They took me to the small, dust-covered corner of the shop where three devices sat — two Samsung devices and one other device whose brand I’d never heard of before. For $100, I could buy the mid-range phone outright without having to sign a contract and go month-to-month.</p>
+						</div>
+					</span>
+				</div>
+
+				<div id="jsAbout" class="slide" data-state='inactive'>
+					<span class='slide_content'>
+						<div class='hero-'>
+							<h1>In July, I deleted Facebook.</h1>
+						</div>
+					</span>
+				</div>
+
+				<div id="jsContact" class="slide" data-state='inactive'>
+					<span class='slide_content'>
+						<div class='hero-'>
+							<h1>In July, I deleted Facebook.</h1>
+						</div>
+					</span>
+				</div>
+
+			</div>
+
+		</div>
+
+	<script type="text/javascript">
+
+		var Slides = function() {
+
+			this.slideButtons = this.getElementsArray('nav_button');
+
+			this.slides = this.getElementsArray('slide');
+			this.activeSlide = 0;
+
+			this.menuState = 0; /* 0 for navigation menu inactive, 1 for menu active */
+			
+			this.initListeners();
+
+		};
+
+		/* Add event listeners for buttons */
+		Slides.prototype.initListeners = function() {
+
+			var navButton = document.getElementById('navBack');
+			var menuButton = document.getElementById('navHome');
+
+			navButton.addEventListener('click', function() {slider.changeSlide()}, false);
+			menuButton.addEventListener('click', function() {slider.toggleMenu()}, false);
+
+			for(var i = this.slideButtons.length - 1; i >= 0; i--) {
+
+				this.slideButtons[i].addEventListener('click', function() {slider.changeSlide(this)}, false);
+
+			}
+
+		}
+
+		/* Move to the next slide */
+		Slides.prototype.changeSlide = function(slideIndex) {
+
+			var previousSlide = this.slides[this.activeSlide];
+
+			//Keep track of the current slide number.
+			if(slideIndex != null) {
+
+				this.activeSlide = this.slideButtons.indexOf(slideIndex);
+				this.toggleMenu();
+
+			} else if(this.activeSlide < this.slides.length - 1) {
+
+				this.activeSlide++;
+
+			} else {
+
+				this.activeSlide = 0;
+
+			}
+
+			var currentSlide = this.slides[this.activeSlide];
+
+			if(previousSlide === currentSlide)
+				return;
+
+			//Run transitions.
+			previousSlide.setAttribute('data-state', 'previous');
+			currentSlide.setAttribute('data-state', 'active');
+
+			//Timeout that runs after the transition to retain the post-transition states.
+			window.setTimeout(function() {
+
+				currentSlide.setAttribute('data-state', '');
+				previousSlide.setAttribute('data-state', 'inactive');
+
+			}, 300);
+
+		};
+
+		/* Toggle the menu of pages. Similar method to changeSlide() function. */
+		Slides.prototype.toggleMenu = function() {
+
+			var content = document.getElementById('content'),
+				state = this.menuState;
+
+			if(this.menuState === 1) {
+
+				content.setAttribute('data-state', 'previous');
+				this.menuState = 0;
+
+			} else {
+
+				content.setAttribute('data-state', 'active');
+				this.menuState = 1;
+
+			}
+
+			window.setTimeout(function() {
+
+				if(state === 1) {
+
+					content.setAttribute('data-state', '');
+
+				} else {
+
+					content.setAttribute('data-state', 'menu_on');
+
+				}
+
+			}, 300);
+
+		}
+
+		Slides.prototype.getElementsArray = function(className) {
+
+			return Array.prototype.slice.call(document.getElementsByClassName(className));
+
+		};
+
+		var slider = new Slides();
+
+	</script>
+
+	</body>
+</html>
