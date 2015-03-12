@@ -68,23 +68,27 @@ header {
 	position: relative;
 }
 
+#main_nav {
+	font-size: 2rem;
+}
+
 #nav_menu {
 	position: absolute;
 	top: -126px;
 	width: 100%;
 }
 
-#nav_menu ul {
-	margin: 0;
-	padding: 0;
-}
+	#nav_menu ul {
+		margin: 0;
+		padding: 0;
+	}
 
-#nav_menu li {
-	padding: 10px 5%;
-	text-align: left;
-	border-bottom: 1px solid #F6F6F6;	
-	cursor: pointer;
-}
+		#nav_menu li {
+			padding: 10px 5%;
+			text-align: left;
+			border-bottom: 1px solid #F6F6F6;	
+			cursor: pointer;
+		}
 
 /*
 Hero containers
@@ -99,10 +103,10 @@ Hero containers
 	color: #FFF;
 }
 
-.hero-image {
-	width: 100%;
-	padding: 0;
-}
+	.hero-image {
+		width: 100%;
+		padding: 0;
+	}
 
 /*
 Slide containers
@@ -115,17 +119,18 @@ Slide containers
 	z-index: 0;
 }
 
-.slide {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: scroll;
-	background: #FFF;
-}
+	.slide {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		overflow: scroll;
+		background: #FFF;
+	}
 
-.slide_text {
-	padding: 10%;
-}
+		.slide_text {
+			text-align: left;
+			padding: 5% 10%;
+		}
 
 /*
 Slide animations
